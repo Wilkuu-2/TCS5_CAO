@@ -1,4 +1,5 @@
 /scratch
 .o
 .exe
+build/
 

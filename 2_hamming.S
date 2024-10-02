@@ -231,8 +231,11 @@
   addu iter0, iter0, stringSZ 
   sub $t0, iter0, inputBufSZ
   bltz $t0, loopA
-  # END OF LOOP ITERA 
+  # END OF LOOP ITERA, end of calculations  
   
+  addu $v0, $0, newline
+  addu $a0, $0, $0 
+  syscall 
   
  # bltz 
  # sub 

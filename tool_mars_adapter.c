@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <stdio.h>
 
 // This is a tool to make the behaviour of the Mars get character syscall consistent between the simulator and the command line
@@ -8,11 +9,11 @@
 #define BUF_SZ 512
 
 int main(void) { 
-  char buffer[BUF_SZ]; 
-  while((nbytes = read(buffer, BUF_SZ, stdin)) > 0) { //read from the input 
-    for(int i = 0; i < nbytes; i++) {
-      printf("%c\n", buffer[i]) // Output a newline for each character
-    } 
+  int character; 
+  while((character = getc(stdin)) != EOF) { //read from the input
+    putchar(character);
+    putchar('\n');
+    fflush(stdout);
   }
 
 }
